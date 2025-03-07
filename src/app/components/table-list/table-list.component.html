@@ -16,14 +16,17 @@
       </th>
       <th></th>
     </tr>
-    <tr *ngFor="let item of listProduct">
+    <tr *ngFor="let item of listDropDown">
       <td>
         <img
           class="image"
-          src="{{ item.logo }}"
+          src="{{
+            onValidUrl(item.logo) ? item.logo : '../../../assets/img.png'
+          }}"
           alt="{{ item.name }}"
         />
       </td>
+
       <td>{{ item.name | titlecase }}</td>
       <td>{{ item.description | titlecase }}</td>
       <td>{{ item.date_release | date : "YYYY-MM-d" : "UTC" }}</td>
@@ -33,20 +36,26 @@
           <i class="fa-solid fa-ellipsis-vertical dropbtn"></i>
           <div class="dropdown-content">
             <div (click)="onButtonEdit(item)">Editar</div>
-            <div>Eliminar</div>
+            <div (click)="onButtonDelete(item)">Eliminar</div>
           </div>
         </span>
       </td>
     </tr>
   </table>
   <div class="footer">
-    <div>
-        {{listProduct.length}} Resultados
-    </div>
+    <div>{{ listDropDown.length }} Resultados</div>
     <select name="select" (change)="onDropDown($event)">
-        <option value="5" selected>5</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
+      <option value="5" selected>5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
     </select>
+  </div>
 </div>
+
+<div *ngIf="isModalDelete">
+  <app-modal-delete-component
+    [itemProduct]="itemProductDel"
+    (closeModal)="onCloseModal()"
+    (buttonConfirm)="onModalConfirm()"
+  ></app-modal-delete-component>
 </div>
