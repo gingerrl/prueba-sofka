@@ -1,1 +1,14 @@
-<p>modal-delete-component works!</p>
+<div class="modal-container">
+  <div class="modal-content">
+    <span class="text-content">
+      ¿Estas seguro de eliminar el producto {{ itemProduct.name }}?
+    </span>
+    <div class="line-default"></div>
+    <div class="button-content">
+      <button (click)="onButtonCancel()" class="button-cancel">Cancelar</button>
+      <button (click)="onButtonConfirm()" class="button-confirm">
+        Confirmar
+      </button>
+    </div>
+  </div>
+</div>
