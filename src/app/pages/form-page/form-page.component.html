@@ -1,71 +1,169 @@
 <div class="container">
   <button class="button-back" (click)="onButtonBack()">Regresar</button>
 
-  <h1>Formulario de Registro</h1>
-  <hr>
+  <h1>{{ isCreate ? "Agregar Registro" : "Actualizar Registro" }}</h1>
+  <hr />
   <form class="form-content" [formGroup]="form">
-      <div>
-          <label for="id">ID</label>
-          <input *ngIf="isCreate" type="text" name="id" formControlName="id" minlength="3" maxlength="10" />
-          <input *ngIf="!isCreate" readonly type="text" name="id" formControlName="id" minlength="3" maxlength="10" />
-          <div class="text-error" *ngIf="form.get('id')?.errors && form.get('id')?.touched">
-              <small>Id no es valido</small>
-              <small *ngIf="form.get('id')?.hasError('required')">Id es requerido</small>
-              <small *ngIf="form.get('id')?.hasError('minlength')">Id debe tener un minimo de 3 caracteres</small>
-              <small *ngIf="form.get('id')?.hasError('maxlength')">Id debe tener un maximo de 10 caracteres</small>
-          </div>
+    <div>
+      <label for="id">ID</label>
+      <input
+        *ngIf="isCreate"
+        type="text"
+        name="id"
+        formControlName="id"
+        minlength="3"
+        maxlength="10"
+      />
+      <input
+        *ngIf="!isCreate"
+        readonly
+        type="text"
+        name="id"
+        formControlName="id"
+        minlength="3"
+        maxlength="10"
+      />
+      <div
+        class="text-error"
+        *ngIf="form.get('id')?.errors && form.get('id')?.touched"
+      >
+        <small>Id no es valido</small>
+        <small *ngIf="form.get('id')?.hasError('required')"
+          >Id es requerido</small
+        >
+        <small *ngIf="form.get('id')?.hasError('minlength')"
+          >Id debe tener un minimo de 3 caracteres</small
+        >
+        <small *ngIf="form.get('id')?.hasError('maxlength')"
+          >Id debe tener un maximo de 10 caracteres</small
+        >
       </div>
-      <div>
-          <label for="name">Nombre</label>
-          <input [ngClass]="form.get('name')?.errors && form.get('name')?.touched ? 'input-error' : ''" type="text"
-              name="name" formControlName="name" minlength="5" maxlength="100" />
-          <div class="text-error" *ngIf="form.get('name')?.errors && form.get('name')?.touched">
-              <small *ngIf="form.get('name')?.hasError('required')">Nombre es requerido</small>
-          </div>
+    </div>
+    <div>
+      <label for="name">Nombre</label>
+      <input
+        [ngClass]="
+          form.get('name')?.errors && form.get('name')?.touched
+            ? 'input-error'
+            : ''
+        "
+        type="text"
+        name="name"
+        formControlName="name"
+        minlength="5"
+        maxlength="100"
+      />
+      <div
+        class="text-error"
+        *ngIf="form.get('name')?.errors && form.get('name')?.touched"
+      >
+        <small *ngIf="form.get('name')?.hasError('required')"
+          >Nombre es requerido</small
+        >
       </div>
-      <div>
-          <label for="description">Descripción</label>
-          <input [ngClass]="form.get('description')?.errors && form.get('description')?.touched ? 'input-error' : ''"
-              name="description" formControlName="description" minlength="10" maxlength="200" />
-          <div class="text-error" *ngIf="form.get('description')?.errors && form.get('description')?.touched">
-              <small *ngIf="form.get('description')?.hasError('required')">Descripcion es requerido</small>
-          </div>
+    </div>
+    <div>
+      <label for="description">Descripción</label>
+      <input
+        [ngClass]="
+          form.get('description')?.errors && form.get('description')?.touched
+            ? 'input-error'
+            : ''
+        "
+        name="description"
+        formControlName="description"
+        minlength="10"
+        maxlength="200"
+      />
+      <div
+        class="text-error"
+        *ngIf="
+          form.get('description')?.errors && form.get('description')?.touched
+        "
+      >
+        <small *ngIf="form.get('description')?.hasError('required')"
+          >Descripcion es requerido</small
+        >
       </div>
-      <div>
-          <label for="logo">Logo</label>
-          <input [ngClass]="form.get('logo')?.errors && form.get('logo')?.touched ? 'input-error' : ''" name="logo"
-              formControlName="logo" />
-          <div class="text-error" *ngIf="form.get('logo')?.errors && form.get('logo')?.touched">
-              <small *ngIf="form.get('logo')?.hasError('required')">Logo es requerido</small>
-          </div>
+    </div>
+    <div>
+      <label for="logo">Logo</label>
+      <input
+        [ngClass]="
+          form.get('logo')?.errors && form.get('logo')?.touched
+            ? 'input-error'
+            : ''
+        "
+        name="logo"
+        formControlName="logo"
+      />
+      <div
+        class="text-error"
+        *ngIf="form.get('logo')?.errors && form.get('logo')?.touched"
+      >
+        <small *ngIf="form.get('logo')?.hasError('required')"
+          >Logo es requerido</small
+        >
       </div>
-      <div>
-          <label for="date_release">Fecha Liberación</label>
-          <input
-              [ngClass]="form.get('date_release')?.errors && form.get('date_release')?.touched ? 'input-error' : ''"
-              name="date_release" formControlName="date_release" placeholder="YYYY-MM-DD"/>
-          <div class="text-error" *ngIf="form.get('date_release')?.errors && form.get('date_release')?.touched">
-              <small *ngIf="form.get('date_release')?.hasError('required')">Fecha Liberacion es requerido</small>
-          </div>
+    </div>
+    <div>
+      <label for="date_release">Fecha Liberación</label>
+      <input
+        [ngClass]="
+          form.get('date_release')?.errors && form.get('date_release')?.touched
+            ? 'input-error'
+            : ''
+        "
+        name="date_release"
+        formControlName="date_release"
+        placeholder="YYYY-MM-DD"
+      />
+      <div
+        class="text-error"
+        *ngIf="
+          form.get('date_release')?.errors && form.get('date_release')?.touched
+        "
+      >
+        <small *ngIf="form.get('date_release')?.hasError('required')"
+          >Fecha Liberacion es requerido</small
+        >
       </div>
-      <div>
-          <label for="date_revision">Fecha Revisión</label>
-          <input
-              [ngClass]="form.get('date_revision')?.errors && form.get('date_revision')?.touched ? 'input-error' : ''"
-              name="date_revision" formControlName="date_revision" placeholder="YYYY-MM-DD"/>
-          <div class="text-error" *ngIf="form.get('date_revision')?.errors && form.get('date_revision')?.touched">
-              <small *ngIf="form.get('date_revision')?.hasError('required')">Fecha Revision es requerido</small>
-          </div>
+    </div>
+    <div>
+      <label for="date_revision">Fecha Revisión</label>
+      <input
+        [ngClass]="
+          form.get('date_revision')?.errors &&
+          form.get('date_revision')?.touched
+            ? 'input-error'
+            : ''
+        "
+        name="date_revision"
+        formControlName="date_revision"
+        placeholder="YYYY-MM-DD"
+      />
+      <div
+        class="text-error"
+        *ngIf="
+          form.get('date_revision')?.errors &&
+          form.get('date_revision')?.touched
+        "
+      >
+        <small *ngIf="form.get('date_revision')?.hasError('required')"
+          >Fecha Revision es requerido</small
+        >
       </div>
+    </div>
   </form>
 
   <div class="button-content">
-      <button class="button-restart">
-          Reiniciar
-      </button>
-      <button class="button-send" (click)="onButtonSend()" >
-          Enviar
-      </button>
+    <button class="button-restart" (click)="onButtonReseet()">Reiniciar</button>
+    <button
+      class="button-send"
+      (click)="onButtonSend()"
+      [disabled]="form.invalid"
+    >
+      {{ isCreate ? "Agregar" : "Actualizar" }}
+    </button>
   </div>
-
 </div>
