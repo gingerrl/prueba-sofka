@@ -1,0 +1,8 @@
+<div>
+  <app-search-component
+    (searchEvent)="onSearchProduct($event)"
+  ></app-search-component>
+  <app-table-list-component
+    [listProduct]="dataProductFilter"
+  ></app-table-list-component>
+</div>
