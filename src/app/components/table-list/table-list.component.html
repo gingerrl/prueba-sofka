@@ -1,0 +1,52 @@
+<div class="container">
+  <table>
+    <tr>
+      <th>Logo</th>
+      <th>Nombre del producto</th>
+      <th>
+        Descripción <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+      </th>
+      <th>
+        Fecha de liberación
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+      </th>
+      <th>
+        Fecha de reestructuración
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+      </th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let item of listProduct">
+      <td>
+        <img
+          class="image"
+          src="{{ item.logo }}"
+          alt="{{ item.name }}"
+        />
+      </td>
+      <td>{{ item.name | titlecase }}</td>
+      <td>{{ item.description | titlecase }}</td>
+      <td>{{ item.date_release | date : "YYYY-MM-d" : "UTC" }}</td>
+      <td>{{ item.date_revision | date : "YYYY-MM-d" : "UTC" }}</td>
+      <td>
+        <span class="dropdown">
+          <i class="fa-solid fa-ellipsis-vertical dropbtn"></i>
+          <div class="dropdown-content">
+            <div (click)="onButtonEdit(item)">Editar</div>
+            <div>Eliminar</div>
+          </div>
+        </span>
+      </td>
+    </tr>
+  </table>
+  <div class="footer">
+    <div>
+        {{listProduct.length}} Resultados
+    </div>
+    <select name="select" (change)="onDropDown($event)">
+        <option value="5" selected>5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+</div>
+</div>
