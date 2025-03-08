@@ -29,13 +29,11 @@ export class TableListComponent  implements OnChanges{
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
      this.listDropDown = changes?.['listProduct'].currentValue.slice(0,5)
   }
 
   onDropDown(e: any) {
     this.listDropDown = this.listProduct.slice(0, e.target.value)
-    console.log("dropp",this.listDropDown)
   }
 
   onButtonEdit(item: ProductInterface) {
@@ -44,9 +42,6 @@ export class TableListComponent  implements OnChanges{
     }, 300);
     this.router.navigate(['/form']);
   }
-
-
-
 
   onButtonDelete(item: ProductInterface){
     this.itemProductDel = item
