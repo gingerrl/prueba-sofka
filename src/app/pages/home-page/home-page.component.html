@@ -2,8 +2,14 @@
   <app-search-component
     (searchEvent)="onSearchProduct($event)"
   ></app-search-component>
-  <app-table-list-component
-    [listProduct]="dataProductFilter"
-    (eventListProd)="onProductList()"
-  ></app-table-list-component>
+
+  <ng-container *ngIf="isLoading === true; else appTableList">
+    <app-table-skeletons></app-table-skeletons>
+  </ng-container>
+  <ng-template #appTableList>
+    <app-table-list-component
+      [listProduct]="dataProductFilter"
+      (eventListProd)="onProductList()"
+    ></app-table-list-component
+  ></ng-template>
 </div>

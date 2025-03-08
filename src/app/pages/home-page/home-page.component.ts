@@ -10,13 +10,17 @@ import { ProductInterface } from '../../interface/product-interface';
 export class HomePageComponent implements OnInit {
   dataProduct: ProductInterface[] = [];
   dataProductFilter: ProductInterface[] = [];
+  isLoading: boolean = false;
+
   constructor(private listService: ListService) {}
 
   ngOnInit(): void {
     this.onProductList();
   }
   onProductList(): void {
+    this.isLoading = true
     this.listService.getListProduct().subscribe((data) => {
+      this.isLoading = false
       this.dataProduct = data;
       this.dataProductFilter = data;
     });

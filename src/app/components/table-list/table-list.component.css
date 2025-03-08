@@ -1,7 +1,43 @@
 .container {
   background-color: var(--color-white);
   padding: 1em;
+}
 
+@media (max-width: 768px) {
+  .container {
+    overflow-x: scroll;
+  }
+
+  .dropdown-content {
+    position: relative !important;
+  }
+
+  .table-responsive {
+    display: table !important;
+    width: 100% !important;
+  }
+
+  .table {
+    display: none;
+  }
+  .table-responsive tr {
+    display: flex;
+    width: 90% !important;
+  }
+  .table-responsive th {
+    min-width: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .table-responsive td {
+    min-width: 50% !important;
+  }
+}
+
+.table-responsive {
+  display: none;
 }
 
 table {
@@ -24,9 +60,8 @@ th {
 .image {
   width: 3.125em;
   height: 3.125em;
-  border-radius:0.063em 50%;
+  border-radius: 0.063em 50%;
 }
-
 
 .footer {
   display: flex;
@@ -46,8 +81,7 @@ th {
   display: none;
   position: absolute;
   background-color: var(--color-white);
-  min-width: 8em;
-  height: 5em;
+  min-width: 5.313em;
   box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
   cursor: pointer;

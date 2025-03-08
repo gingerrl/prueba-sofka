@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container table">
   <table>
     <tr>
       <th>Logo</th>
@@ -42,6 +42,71 @@
       </td>
     </tr>
   </table>
+  <div class="footer">
+    <div>{{ listDropDown.length }} Resultados</div>
+    <select name="select" (change)="onDropDown($event)">
+      <option value="5" selected>5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+  </div>
+</div>
+
+<div class="container table-responsive">
+  <table>
+    <div *ngFor="let item of listProduct">
+      <tr>
+        <th>Logo</th>
+        <td>
+          <img
+            class="image"
+            src="{{
+              onValidUrl(item.logo) ? item.logo : '../../../assets/img.png'
+            }}"
+            alt="{{ item.name }}"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th>Nombre del producto</th>
+        <td>{{ item.name }}</td>
+      </tr>
+      <tr>
+        <th>
+          Descripción <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        </th>
+        <td>{{ item.description }}</td>
+      </tr>
+      <tr>
+        <th>
+          Fecha de liberación
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        </th>
+        <td>{{ item.date_release | date : "YYYY-MM-d" : "UTC" }}</td>
+      </tr>
+      <tr>
+        <th>
+          Fecha de reestructuración
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        </th>
+        <td>{{ item.date_revision | date : "YYYY-MM-d" : "UTC" }}</td>
+      </tr>
+      <tr>
+        <th>Acciones</th>
+        <td>
+          <span class="dropdown">
+            <i class="fa-solid fa-ellipsis-vertical dropbtn"></i>
+            <div class="dropdown-content">
+              <div (click)="onButtonEdit(item)">Editar</div>
+              <div (click)="onButtonDelete(item)">Eliminar</div>
+            </div>
+          </span>
+        </td>
+      </tr>
+      <br />
+    </div>
+  </table>
+
   <div class="footer">
     <div>{{ listDropDown.length }} Resultados</div>
     <select name="select" (change)="onDropDown($event)">

@@ -1,0 +1,49 @@
+ .skeleton-table {
+     width: 100%;
+     height: 33.063em;
+     background: linear-gradient(90deg, var(--loader-background-color) 25%, var(--loader-highlight-color) 50%, var(--loader-background-color) 75%);
+     background-size: 200% 100%;
+     animation: loading 5s infinite ease-in-out;
+     border-radius: 0.5em;
+     margin-bottom: 1.25em;
+ }
+
+ .skeleton-footer {
+     width: 4.375em;
+     height: 1.875em;
+     background: linear-gradient(90deg, var(--loader-background-color) 25%, var(--loader-highlight-color) 50%, var(--loader-background-color) 75%);
+     background-size: 200% 100%;
+     animation: loading 5s infinite ease-in-out;
+     border-radius: 0.5em;
+     margin-bottom: 1.25em;
+ }
+
+ .skeleton-table-responsive {
+     width: 100%;
+     height: 27.063em;
+     background: linear-gradient(90deg, var(--loader-background-color) 25%, var(--loader-highlight-color) 50%, var(--loader-background-color) 75%);
+     background-size: 200% 100%;
+     animation: loading 5s infinite ease-in-out;
+     border-radius: 0.5em;
+     margin-bottom: 1.25em;
+ }
+
+ .skeleton-footer-responsive {
+     width: 4.375em;
+     height: 1.875em;
+     background: linear-gradient(90deg, var(--loader-background-color) 25%, var(--loader-highlight-color) 50%, var(--loader-background-color) 75%);
+     background-size: 200% 100%;
+     animation: loading 5s infinite ease-in-out;
+     border-radius: 0.5em;
+     margin-bottom: 1.25em;
+ }
+
+ @keyframes loading {
+     0% {
+         background-position: 200% 0;
+     }
+
+     100% {
+         background-position: -200% 0;
+     }
+ }

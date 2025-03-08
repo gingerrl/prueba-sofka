@@ -12,6 +12,7 @@ import { TableListComponent } from './components/table-list/table-list.component
 import { FormPageComponent } from './pages/form-page/form-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ListService } from './services/list-service.service';
+import { TableSkeletonsComponent } from './components/table-skeletons/table-skeletons.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ListService } from './services/list-service.service';
     TableListComponent,
     ModalDeleteComponent,
     FormPageComponent,
+    TableSkeletonsComponent
   ],
   imports: [
     BrowserModule,
