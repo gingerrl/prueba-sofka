@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableListComponent } from './table-list.component';
+import { NgEventBus } from 'ng-event-bus';
 
 describe('TableListComponent', () => {
   let component: TableListComponent;
@@ -8,7 +9,13 @@ describe('TableListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TableListComponent]
+      imports:[
+
+      ],
+      declarations: [TableListComponent],
+      providers:[
+        NgEventBus
+      ]
     })
     .compileComponents();
 
